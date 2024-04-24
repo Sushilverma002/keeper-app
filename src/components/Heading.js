@@ -1,10 +1,13 @@
 import React from "react";
-
+import FlashOnIcon from "@mui/icons-material/FlashOn";
 function Heading() {
   return (
     <>
       <header>
-        <h1>Keeper</h1>
+        <h1>
+          <FlashOnIcon />
+          Keeper
+        </h1>
       </header>
     </>
   );
