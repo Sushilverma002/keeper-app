@@ -1,0 +1,50 @@
+import React, { useState } from "react";
+
+function CreateArea(props) {
+  const [note, setNote] = useState({
+    title: "",
+    content: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target; //destructure
+    setNote((prevNote) => {
+      return {
+        ...prevNote,
+        [name]: value,
+      };
+    });
+  }
+
+  function submitNote(event) {
+    props.onAdd(note);
+    //now we want to clear the text area so
+    setNote({
+      title: "",
+      content: "",
+    });
+    event.preventDefault(); //it prevent to refresh the webpage when this function calls
+  }
+
+  return (
+    <div>
+      <form>
+        <input
+          name="title"
+          onChange={handleChange}
+          placeholder="Title"
+          value={note.title}
+        />
+        <textarea
+          name="content"
+          onChange={handleChange}
+          value={note.content}
+          placeholder="Take a note....."
+          rows="3"
+        />
+        <button onClick={submitNote}>Add</button>
+      </form>
+    </div>
+  );
+}
+export default CreateArea;
