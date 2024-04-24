@@ -6,7 +6,7 @@ function Heading() {
       <header>
         <h1>
           <FlashOnIcon />
-          Keeper
+          NoteForge
         </h1>
       </header>
     </>
